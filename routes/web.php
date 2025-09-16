@@ -1,9 +1,10 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('admin.dosen');
 });
 
 Route::get('/test-submit', function (){
@@ -12,4 +13,35 @@ Route::get('/test-submit', function (){
 
 Route::post('/submit', function(){
     return "form has been submitted";
+});
+
+Route::put('/update', function(){
+    return "send update data";
+});
+
+Route::delete('/remove', function(){
+    return "send remove data";
+});
+
+// Route Group
+// 3 halaman admin / nambahin dosen / namabahin mahasiswa
+// nambahin karyawan
+Route::prefix('/admin')->group(function (){
+    route::get('/dosen', function(){
+        return view('admin.dosen');
+    });
+    route::get('/mahasiswa', function(){
+        return view('admin.mahasiswa');
+    });
+});
+
+route::get('/admin/karyawan', function (){
+    return view('admin.karyawan');
+});
+
+Route::match(['get', 'post'], '/feedback', function (Request $request) {
+    if ($request->isMethod('post')) {
+        return 'Form submitted';
+    }
+    return view('feedback');
 });

@@ -6,6 +6,7 @@
 </head>
 
 <body>
+     <!-- POST Form -->
     <form action="/submit" method="POST">
         @csrf
         <button type="submit">Send</button>
