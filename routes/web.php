@@ -45,3 +45,21 @@ Route::match(['get', 'post'], '/feedback', function (Request $request) {
     }
     return view('feedback');
 });
+
+Route::get('/contact', function (){
+    return view('contact');
+}); 
+
+Route::post('/submit-contact', function (Request $request){
+    $name = $request->input('name');
+    return "Received name $name";
+}); 
+
+// 2.5 Data Routes ke View
+
+Route::get('/about', function(){
+    return view('about', [
+        'name' => null,
+        'umur' => 22
+    ]);
+});
