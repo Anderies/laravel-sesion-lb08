@@ -56,10 +56,14 @@ Route::post('/submit-contact', function (Request $request){
 }); 
 
 // 2.5 Data Routes ke View
-
 Route::get('/about', function(){
     return view('about', [
         'name' => null,
         'umur' => 22
     ]);
+});
+
+Route::get('/profile/{username}', function($username){
+    return view('profile', ['username' 
+    => $username]);
 });
