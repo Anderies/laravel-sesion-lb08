@@ -37,7 +37,7 @@ Route::prefix('/admin')->group(function (){
 
 route::get('/admin/karyawan', function (){
     return view('admin.karyawan');
-});
+})->name('karyawan');
 
 Route::match(['get', 'post'], '/feedback', function (Request $request) {
     if ($request->isMethod('post')) {
@@ -66,4 +66,8 @@ Route::get('/about', function(){
 Route::get('/profile/{username}', function($username){
     return view('profile', ['username' 
     => $username]);
+});
+
+Route::fallback(function () {
+    return response()->view('fallback', [], 404);
 });

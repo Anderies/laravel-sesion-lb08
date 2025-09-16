@@ -7,8 +7,9 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Halaman Dosen</h1>
-    <a href="{{ route('karyawan') }}">Karyawan</a>
-    <a href="/admin/mahasiswa">Mahasiswa</a>
+    <h1 style="display: flex; justify-content: center; 
+    width:80%; margin-left: 10%;
+    margin-right:10%;"
+    >Halaman yang kamu cari tidak ada</h1>
 </body>
 </html>
